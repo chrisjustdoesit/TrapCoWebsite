@@ -1,1 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout – Take Risks and Prosper Co.</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;700&family=Bebas+Neue&display=swap" rel="stylesheet">
+  <script src="https://sandbox.web.squarecdn.com/v1/square.js"></script>
+  <script src="checkout.js"></script>
+  <style>
+    /* Reuse the same styles as index.html */
+    .glass {
+      background: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(10px);
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .urban-gradient {
+      background: linear-gradient(45deg, #FF6B6B, #FFE66D);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .urban-border {
+      border: 2px solid #FF6B6B;
+    }
+    .nav-link {
+      position: relative;
+      color: white;
+      text-decoration: none;
+    }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      background: #FF6B6B;
+      bottom: -5px;
+      left: 0;
+      transition: width 0.3s ease;
+    }
+    .nav-link:hover::after {
+      width: 100%;
+    }
+    .sticky-nav {
+      transition: background 0.3s ease;
+    }
+    .sticky-nav.scrolled {
+      background: rgba(0, 0, 0, 0.9);
+    }
+    .hover-glow:hover {
+      box-shadow: 0 0 15px rgba(255, 107, 107, 0.8);
+    }
+    .hover-scale {
+      transition: transform 0.3s ease;
+    }
+    .hover-scale:hover {
+      transform: scale(1.05);
+    }
+    .text-shadow {
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+    .gradient-bg {
+      background: linear-gradient(135deg, #1a1a1a, #000000);
+    }
+    .parallax {
+      background-attachment: fixed;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+    .card-hover {
+      transition: box-shadow 0.3s ease, transform 0.3s ease;
+    }
+    .card-hover:hover {
+      box-shadow: 0 10px 20px rgba(255, 107, 107, 0.5);
+      transform: translateY(-10px);
+    }
+    .animate-float {
+      animation: float 3s ease-in-out infinite;
+    }
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+    /* Custom styles for the checkout page */
+    #card-container {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 1rem;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+    }
+    #card-button {
+      background: linear-gradient(45deg, #FF6B6B, #FFE66D);
+      color: black;
+      font-weight: bold;
+      padding: 0.75rem 1.5rem;
+      border-radius: 8px;
+      transition: opacity 0.3s ease;
+    }
+    #card-button:hover {
+      opacity: 0.9;
+    }
+  </style>
+</head>
+<body class="bg-black text-white font-montserrat">
+  <!-- Header -->
+  <header class="sticky-nav fixed w-full z-50 py-4">
+    <div class="container mx-auto px-4">
+      <div class="flex justify-between items-center">
+        <h1 class="text-3xl font-bold urban-font urban-gradient text-shadow">Take Risks and Prosper Co.</h1>
+        <nav class="space-x-6">
+          <a href="index.html" class="nav-link">Home</a>
+          <a href="shop.html" class="nav-link">Shop</a>
+          <a href="about.html" class="nav-link">About</a>
+          <a href="contact.html" class="nav-link">Contact</a>
+        </nav>
+      </div>
+    </div>
+  </header>
 
+  <!-- Checkout Section -->
+  <section class="container mx-auto px-4 py-24">
+    <h2 class="text-4xl font-bold urban-font text-center mb-8 urban-gradient text-shadow">Checkout</h2>
+    <div class="glass p-8 rounded-lg max-w-lg mx-auto">
+      <form id="payment-form">
+        <div id="card-container"></div>
+        <button id="card-button" type="button" class="w-full mt-4 bg-gradient-to-r from-[#FF6B6B] to-[#FFE66D] text-black px-6 py-2 rounded-lg hover:opacity-80 transition duration-300 hover-glow">
+          Pay Now
+        </button>
+      </form>
+      <div id="payment-status-container" class="mt-4 text-center text-gray-300"></div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-black py-6 mt-12">
+    <div class="container mx-auto px-4 text-center">
+      <p class="text-gray-300">&copy; 2025 Take Risks and Prosper Co. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>
