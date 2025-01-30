@@ -85,6 +85,16 @@
         transform: translateY(-10px);
       }
     }
+    /* Sidebar Transition */
+    #sidebar {
+      transition: transform 0.3s ease, opacity 0.3s ease;
+      transform: translateX(-100%);
+      opacity: 0;
+    }
+    #sidebar.active {
+      transform: translateX(0);
+      opacity: 1;
+    }
   </style>
 </head>
 <body class="bg-black text-white font-montserrat">
@@ -93,12 +103,11 @@
     <div class="container mx-auto px-4">
       <div class="flex justify-between items-center">
         <h1 class="text-3xl font-bold urban-font urban-gradient text-shadow">Take Risks and Prosper Co.</h1>
-       <nav class="space-x-6">
-  <a href="index.html" class="nav-link">Home</a>
-   <a href="shop.html" class="nav-link">Shop</a>
-  <a href="about.html" class="nav-link">About</a>
-  <a href="contact.html" class="nav-link">Contact</a>
-</nav>
+        <nav class="space-x-6">
+          <a href="index.html" class="nav-link">Home</a>
+          <a href="shop.html" class="nav-link">Shop</a>
+          <a href="about.html" class="nav-link">About</a>
+          <a href="contact.html" class="nav-link">Contact</a>
           <button id="theme-toggle" class="p-2 rounded-full bg-gradient-to-r from-[#FF6B6B] to-[#FFE66D] text-black hover:opacity-80 transition duration-300 hover-glow">
             🌓
           </button>
@@ -182,13 +191,17 @@
     if (localStorage.getItem('darkMode') === 'true') {
       body.classList.add('dark');
     }
+  </script>
 
-    // Sidebar Toggle Script
-    const sidebarToggle = document.getElementById('sidebar-toggle');
-    const sidebar = document.getElementById('sidebar');
+  <!-- Sidebar Toggle Script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const sidebarToggle = document.getElementById('sidebar-toggle');
+      const sidebar = document.getElementById('sidebar');
 
-    sidebarToggle.addEventListener('click', () => {
-      sidebar.classList.toggle('hidden');
+      sidebarToggle.addEventListener('click', () => {
+        sidebar.classList.toggle('active');
+      });
     });
   </script>
 </body>
